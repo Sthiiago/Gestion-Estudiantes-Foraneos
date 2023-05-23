@@ -1,5 +1,6 @@
 package com.poblation.poblationbackend.controller;
 
+import com.poblation.poblationbackend.dto.StudentDTO;
 import com.poblation.poblationbackend.model.Student;
 import com.poblation.poblationbackend.service.StudentService;
 import org.springframework.http.ResponseEntity;
@@ -19,27 +20,27 @@ public class StudentController {
     }
 
     @GetMapping("/students")
-    public List<Student> listStudents() {
+    public List<StudentDTO> listStudents() {
         return studentService.listStudents();
     }
 
     @PostMapping("/students")
-    public Student saveStudent(@RequestBody Student student){
-        return studentService.saveStudent(student);
+    public StudentDTO saveStudent(@RequestBody StudentDTO studentDTO){
+        return studentService.saveStudent(studentDTO);
     }
 
     @GetMapping("/students/{id}")
-    public ResponseEntity<Student> getStudentById(@PathVariable Long id){
+    public StudentDTO getStudentById(@PathVariable Long id){
         return studentService.getStudentById(id);
     }
 
     @PutMapping("/students/{id}")
-    public ResponseEntity<Student> updateStudentById(@PathVariable Long id, @RequestBody Student student){
-        return studentService.updateStudentById(id,student);
+    public StudentDTO updateStudentById(@PathVariable Long id, @RequestBody StudentDTO studentDTO){
+        return studentService.updateStudentById(id,studentDTO);
     }
 
     @DeleteMapping("/students/{id}")
-    public Student deleteStudentById(@PathVariable Long id){
+    public StudentDTO deleteStudentById(@PathVariable Long id){
         return studentService.deleteStudentById(id);
     }
 
