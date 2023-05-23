@@ -1,5 +1,6 @@
 package com.poblation.poblationbackend.service;
 
+import com.poblation.poblationbackend.dto.StudentDTO;
 import com.poblation.poblationbackend.model.Student;
 import org.springframework.http.ResponseEntity;
 
@@ -7,15 +8,15 @@ import java.util.List;
 
 public interface StudentService {
 
-    List<Student> listStudents();
+    List<StudentDTO> listStudents();
 
-    Student saveStudent(Student student);
+    StudentDTO saveStudent(StudentDTO studentDTO);
 
-    ResponseEntity<Student> getStudentById(Long id);
+    StudentDTO getStudentById(Long id);
 
-    ResponseEntity<Student> updateStudentById(Long id, Student detailsStudent);
+    StudentDTO updateStudentById(Long id, StudentDTO detailsStudentDTO);
 
-    Student deleteStudentById(Long id);
+    StudentDTO deleteStudentById(Long id);
 
     double getAveragePayRent();
 }

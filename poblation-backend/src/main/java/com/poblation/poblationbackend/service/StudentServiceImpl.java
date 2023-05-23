@@ -1,12 +1,17 @@
 package com.poblation.poblationbackend.service;
 
+import com.poblation.poblationbackend.dto.StudentDTO;
 import com.poblation.poblationbackend.exceptions.ResourceNotFoundException;
 import com.poblation.poblationbackend.model.Student;
 import com.poblation.poblationbackend.repository.StudentRepository;
+import org.modelmapper.ModelMapper;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Optional;
 
 @Service
 public class StudentServiceImpl implements StudentService{
@@ -19,26 +24,43 @@ public class StudentServiceImpl implements StudentService{
 
 
     @Override
-    public List<Student> listStudents() {
-        return studentRepository.findAll();
+    public List<StudentDTO> listStudents() {
+        ModelMapper modelMapper = new ModelMapper();
+        List<Student> studentList = studentRepository.findAll();
+        List<StudentDTO> studentDTOList = new ArrayList<>();
+        for (Student student: studentList){
+            studentDTOList.add(modelMapper.map(student, StudentDTO.class));
+        }
+        return studentDTOList;
     }
 
     @Override
-    public Student saveStudent(Student student) {
-        return studentRepository.save(student);
+    public StudentDTO saveStudent(StudentDTO studentDTO) {
+        ModelMapper modelMapper = new ModelMapper();
+        Student student = modelMapper.map(studentDTO,Student.class);
+        student = studentRepository.save(student);
+        studentDTO = modelMapper.map(student, StudentDTO.class);
+        return studentDTO;
     }
 
     @Override
-    public ResponseEntity<Student> getStudentById(Long id) {
+    public StudentDTO getStudentById(Long id) {
+        ModelMapper modelMapper = new ModelMapper();
         Student student = studentRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No existe el estudiante con el id: " + id));
-        return ResponseEntity.ok(student);
+
+        return modelMapper.map(student, StudentDTO.class);
+
     }
 
     @Override
-    public ResponseEntity<Student> updateStudentById(Long id, Student detailsStudent) {
+    public StudentDTO updateStudentById(Long id, StudentDTO detailsStudentDTO) {
+        ModelMapper modelMapper = new ModelMapper();
+
         Student student = studentRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No existe el estudiante con el id: " + id));
+
+        Student detailsStudent = modelMapper.map(detailsStudentDTO, Student.class);
 
         student.setName(detailsStudent.getName());
         student.setLastName(detailsStudent.getLastName());
@@ -48,19 +70,23 @@ public class StudentServiceImpl implements StudentService{
         student.setSpentRent(detailsStudent.getSpentRent());
         student.setSpentTransport(detailsStudent.getSpentTransport());
 
-
         student = studentRepository.save(student);
-        return ResponseEntity.ok(student);
+
+        return modelMapper.map(student, StudentDTO.class);
+
+
     }
 
     @Override
-    public Student deleteStudentById(Long id) {
+    public StudentDTO deleteStudentById(Long id) {
+        ModelMapper modelMapper = new ModelMapper();
         Student student = studentRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No existe el estudiante con el id: " + id));
 
         studentRepository.delete(student);
 
-        return student;
+
+        return modelMapper.map(student,StudentDTO.class);
     }
 
     @Override
