@@ -1,0 +1,12 @@
+<h1 class="text-center" style="margin-top: 20px;">{{title}}</h1>
+<div class="container text-center">
+    <button (click)="list()" class="btn btn-info btn-custom">Listar</button>
+    <button (click)="addStudent()" class="btn btn-info btn-custom">Añadir estudiante</button>
+    <button (click)="filterStudentById()" class="btn btn-info btn-custom">Buscar estudiante</button>
+    <button (click)="filterStudentById()" class="btn btn-info btn-custom">Promedio de<br>estudiantes foráneos que pagan arriendo</button>
+    <button (click)="filterStudentById()" class="btn btn-info btn-custom">Promedio de estudiantes<br>foráneos que pueden vivir con un salario mínimo</button>
+    <button (click)="filterStudentById()" class="btn btn-info btn-custom">Promedio de dinero<br>gastado mensualmente por estudiantes foráneos</button>
+</div>
+<div class="container">
+    <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,65 @@
+<div class="container col-md-6">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="text-center">Buscar un estudiante</h3>
+        </div>
+        <div class="card-body">
+            <form action="">
+                <div class="form-group">
+                    <label>Ingrese el id del estudiante:</label>
+                    <input type="text" class="form-control" [(ngModel)]="student.id" name="id" (input)="handleInputChange()">
+                </div>
+            
+                <button (click)="searchStudent()" class="btn btn-custom">Buscar</button>
+                
+            </form>
+        </div>
+    </div>
+
+    <div class="card mt-4"  *ngIf="showElement && student.id" >
+            <div class="card-body">
+                <div class="d-flex flex-column">
+                  <div class="mb-2">
+                      <label>Id:</label>
+                      <span> {{student.id}}</span>
+                    </div>
+      
+                  <div class="mb-2">
+                    <label>Nombre:</label>
+                    <span> {{student.name}}</span>
+                  </div>
+            
+                  <div class="mb-2">
+                    <label>Apellido:</label>
+                    <span> {{student.lastName}}</span>
+                  </div>
+      
+                  <div class="mb-2">
+                      <label>Email:</label>
+                      <span> {{student.email}}</span>
+                  </div>
+
+                  <div class="mb-2">
+                    <label>Gastos en mercado:</label>
+                    <span> {{student.spentMarket | currency}}</span>
+                </div>
+
+                <div class="mb-2">
+                    <label>Gastos en renta:</label>
+                    <span> {{student.spentRent | currency}}</span>
+                </div>
+
+                <div class="mb-2">
+                    <label>Gastos en transporte:</label>
+                    <span> {{student.spentTransport | currency}}</span>
+                </div>
+
+                <div class="mb-2">
+                    <label>¿Paga arriendo?:</label>
+                    <span> {{student.payRent ? 'Sí' : 'No'}}</span>
+                </div>
+      
+                </div>
+            </div>
+    </div>
+</div>

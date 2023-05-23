@@ -1,0 +1,41 @@
+
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h3>Lista de estudiantes foráneos</h3>
+        </div>
+        <div class="card-body">
+            <table class="table table-responsive">
+                <thead class="table-dark text-center">
+                    <tr>
+                        <th class="align-middle">Id</th>
+                        <th class="align-middle">Nombre</th>
+                        <th class="align-middle">Apellido</th>
+                        <th class="align-middle">Email</th>
+                        <th class="align-middle">Gastos en mercado</th>
+                        <th class="align-middle">Gastos en renta</th>
+                        <th class="align-middle">Gastos en transporte</th>
+                        <th class="align-middle">¿Paga arriendo?</th>
+                        <th class="align-middle">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let student of students">
+                        <td class="align-middle">{{student.id}}</td>
+                        <td class="align-middle">{{student.name}}</td>
+                        <td class="align-middle">{{student.lastName}}</td>
+                        <td class="align-middle">{{student.email}}</td>
+                        <td class="align-middle">{{student.spentMarket | currency}}</td>
+                        <td class="align-middle">{{student.spentRent | currency}}</td>
+                        <td class="align-middle">{{student.spentTransport | currency}}</td>
+                        <td class="align-middle">{{student.payRent ? 'Sí' : 'No'}} </td>
+                        <td class="align-middle">
+                            <button (click)="edit(student)" class="btn btn-info btn-custom">Editar</button>
+                            <button (click)="confirmDelete(student)" class="btn btn-info btn-custom1">Eliminar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
