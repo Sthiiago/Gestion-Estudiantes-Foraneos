@@ -17,4 +17,5 @@ public interface StudentService {
     StudentDTO deleteStudentById(Long id);
 
     double getAveragePayRent();
+    double getAverageSpent();
 }

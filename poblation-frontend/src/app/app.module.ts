@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { UpdateStudentComponent } from './Student/update-student/update-student.component';
 import { GetStudentByIdComponent } from './Student/get-student-by-id/get-student-by-id.component';
 import { AverageRentComponent } from './Student/average-rent/average-rent.component';
+import { AverageSpentComponent } from './Student/average-spent/average-spent.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { AverageRentComponent } from './Student/average-rent/average-rent.compon
     SaveStudentComponent,
     UpdateStudentComponent,
     GetStudentByIdComponent,
-    AverageRentComponent
+    AverageRentComponent,
+    AverageSpentComponent
   ],
   imports: [
     BrowserModule,

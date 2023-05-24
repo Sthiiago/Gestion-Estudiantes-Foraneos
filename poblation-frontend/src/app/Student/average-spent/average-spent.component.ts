@@ -1,15 +1,14 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {StudentService} from "../../Service/student.service";
-import {Chart,registerables} from 'node_modules/chart.js';
-Chart.register(...registerables);
+import {Chart} from "chart.js";
 
 @Component({
-  selector: 'app-average-rent',
-  templateUrl: './average-rent.component.html',
-  styleUrls: ['./average-rent.component.css']
+  selector: 'app-average-spent',
+  templateUrl: './average-spent.component.html',
+  styleUrls: ['./average-spent.component.css']
 })
-export class AverageRentComponent implements OnInit{
+export class AverageSpentComponent implements OnInit{
 
   number:Number;
 
@@ -23,38 +22,39 @@ export class AverageRentComponent implements OnInit{
   }
 
   private obtainAvg() {
-    this.studentService.obtainAvg().subscribe(data => {
+    this.studentService.obtainAvgSpent().subscribe(data => {
       this.number = data;
     });
   }
 
   chartOptions = {
-    responsive: true,
-    legend: {
-      position: 'bottom'
+    scales: {
+      y: {
+        beginAtZero: true
+      }
     }
   };
   RenderChart(){
 
     this.studentService.getStudentList().subscribe(students => {
       // Filtrar estudiantes que pagan renta
-      const payingRentStudents = students.filter(student => student.payRent);
-      const payingRentCount = payingRentStudents.length;
 
-      // Filtrar estudiantes que no pagan renta
-      const notPayingRentStudents = students.filter(student => !student.payRent);
-      const notPayingRentCount = notPayingRentStudents.length;
+      const labels = students.map(student => `${student.name} (ID: ${student.id})`);
+      const data = students.map(student => student.spentRent+student.spentTransport+student.spentMarket);
 
       const colors = this.generateRandomColors(students.length);
 
       new Chart("myChart", {
-        type: 'pie',
+        type: 'bar',
         data: {
-          labels: ['Sí pagan renta', 'No pagan renta'],
+          labels: labels,
           datasets: [{
-            data: [payingRentCount, notPayingRentCount],
-            backgroundColor: colors,
-            borderWidth: 1
+            label: 'Nombre e ID del estudiante',
+            data: data,
+            backgroundColor:colors,
+            borderWidth: 2,
+            borderRadius: 35,
+            borderSkipped: false
           }]
         },
         options: this.chartOptions
@@ -72,6 +72,4 @@ export class AverageRentComponent implements OnInit{
     }
     return colors;
   }
-
-
 }
