@@ -49,7 +49,7 @@ export class AverageSpentComponent implements OnInit{
         data: {
           labels: labels,
           datasets: [{
-            label: 'Nombre e ID del estudiante',
+            label: 'Gastos de cada estudiante',
             data: data,
             backgroundColor:colors,
             borderWidth: 2,
