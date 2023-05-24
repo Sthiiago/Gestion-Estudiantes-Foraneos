@@ -12,6 +12,7 @@ import { GetStudentByIdComponent } from './Student/get-student-by-id/get-student
 import { AverageRentComponent } from './Student/average-rent/average-rent.component';
 import { AverageSpentComponent } from './Student/average-spent/average-spent.component';
 import { AverageSalaryComponent } from './Student/average-salary/average-salary.component';
+import {NgxPaginationModule} from "ngx-pagination";
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { AverageSalaryComponent } from './Student/average-salary/average-salary.
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

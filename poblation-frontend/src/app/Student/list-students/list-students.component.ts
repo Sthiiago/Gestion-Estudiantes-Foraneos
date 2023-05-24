@@ -12,11 +12,19 @@ export class ListStudentsComponent implements OnInit {
 
   students:Student[]
   totalStudents: number = 0;
+  currentPage = 1; // Página actual
+  itemsPerPage = 10; // Cantidad de estudiantes por página
 
   constructor (private studentService:StudentService, private router:Router) { }
 
   ngOnInit(): void {
     this.obtainStudents();
+  }
+
+  getStudentsPerPage() {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    const endIndex = startIndex + this.itemsPerPage;
+    return this.students.slice(startIndex, endIndex);
   }
 
   private obtainStudents(){
@@ -47,4 +55,8 @@ export class ListStudentsComponent implements OnInit {
     }
   }
 
+  handlePageChange($event: number) {
+    this.currentPage = $event;
+
+  }
 }

@@ -129,7 +129,7 @@ public class StudentServiceImpl implements StudentService{
         int cont = 0;
 
         for (Long i: studentSpents) {
-            if (i>1160000){
+            if (i<1160000){
                 cont++;
             }
         }

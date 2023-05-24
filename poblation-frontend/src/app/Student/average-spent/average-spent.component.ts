@@ -72,4 +72,5 @@ export class AverageSpentComponent implements OnInit{
     }
     return colors;
   }
+
 }

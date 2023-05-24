@@ -51,7 +51,7 @@ export class AverageSalaryComponent implements OnInit{
         data: {
           labels: ['Pueden vivir con 1 SMMLV', 'No pueden vivir con 1 SMMLV'],
           datasets: [{
-            data: [canLiveCount, canNotLiveCount],
+            data: [canNotLiveCount, canLiveCount],
             backgroundColor: colors,
             borderWidth: 1
           }]
