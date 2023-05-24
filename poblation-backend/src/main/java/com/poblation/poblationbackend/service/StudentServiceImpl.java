@@ -5,13 +5,10 @@ import com.poblation.poblationbackend.exceptions.ResourceNotFoundException;
 import com.poblation.poblationbackend.model.Student;
 import com.poblation.poblationbackend.repository.StudentRepository;
 import org.modelmapper.ModelMapper;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.NoSuchElementException;
-import java.util.Optional;
 
 @Service
 public class StudentServiceImpl implements StudentService{
