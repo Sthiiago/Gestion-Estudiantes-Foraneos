@@ -99,18 +99,42 @@ public class StudentServiceImpl implements StudentService{
         average = average/studentList.size();
         return average;
     }
-    @Override
-    public double getAverageSpent(){
-        List<Student> studentList = studentRepository.findAll();
-        List<Long> studentSpents = new ArrayList<>();
-        double average = 0;
 
+    private List<Long> getSpents(List<Student> studentList){
+        List<Long> studentSpents = new ArrayList<>();
         for (Student student : studentList) {
             studentSpents.add(student.getSpentMarket()+student.getSpentRent()+student.getSpentTransport());
         }
+        return studentSpents;
+    }
+    @Override
+    public double getAverageSpent(){
+        List<Student> studentList = studentRepository.findAll();
+
+        double average = 0;
+        List<Long> studentSpents = getSpents(studentList);
+
+
         average = (double) studentSpents.stream().mapToInt(Long::intValue).sum() /studentSpents.size();
 
         return average;
 
+    }
+
+    @Override
+    public double getAvgMoreThanMinSalary() {
+        List<Student> studentList = studentRepository.findAll();
+        List<Long> studentSpents = getSpents(studentList);
+        double average = 0;
+        int cont = 0;
+
+        for (Long i: studentSpents) {
+            if (i>1160000){
+                cont++;
+            }
+        }
+
+        average = (double) cont /studentList.size();
+        return average;
     }
 }

@@ -30,4 +30,8 @@ export class AppComponent {
   avgSpent() {
     this.router.navigate(["avgSpent"]);
   }
+
+  avgSalary() {
+    this.router.navigate(["avgSalary"]);
+  }
 }

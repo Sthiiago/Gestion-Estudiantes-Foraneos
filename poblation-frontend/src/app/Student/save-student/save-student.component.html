@@ -25,13 +25,13 @@
                     <input type="text" class="form-control" [(ngModel)]="student.spentMarket" name="spentMarket" (input)="validateNumberFormat('spentMarket')">
                     <div *ngIf="showMarketAlert" class="alert alert-danger">Ingrese solo números sin puntos en el campo de gasto en mercado.</div>
                   </div>
-                  
+
                   <div class="form-group">
-                    <label>Dinero gastado mensualmente en renta:</label>
+                    <label>Dinero gastado mensualmente en vivienda:</label>
                     <input type="text" class="form-control" [(ngModel)]="student.spentRent" name="spentRent" (input)="validateNumberFormat('spentRent')">
                     <div *ngIf="showRentAlert" class="alert alert-danger">Ingrese solo números sin puntos en el campo de gasto en renta.</div>
                   </div>
-                  
+
                   <div class="form-group">
                     <label>Dinero gastado mensualmente en transporte:</label>
                     <input type="text" class="form-control" [(ngModel)]="student.spentTransport" name="spentTransport" (input)="validateNumberFormat('spentTransport')">

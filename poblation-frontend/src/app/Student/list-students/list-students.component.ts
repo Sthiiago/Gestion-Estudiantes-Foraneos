@@ -9,8 +9,9 @@ import { StudentService } from 'src/app/Service/student.service';
   styleUrls: ['./list-students.component.css']
 })
 export class ListStudentsComponent implements OnInit {
-  
+
   students:Student[]
+  totalStudents: number = 0;
 
   constructor (private studentService:StudentService, private router:Router) { }
 
@@ -21,7 +22,9 @@ export class ListStudentsComponent implements OnInit {
   private obtainStudents(){
     this.studentService.getStudentList().subscribe(dato => {
       this.students=dato;
+      this.totalStudents = this.students.length;
     });
+
   }
 
   edit(student:Student){
@@ -38,7 +41,7 @@ export class ListStudentsComponent implements OnInit {
   confirmDelete(student: Student) {
     const customMessage = "¿Estás seguro de que deseas eliminar al usuario con ID: " + student.id + "?";
     const confirmDelete = window.confirm(customMessage);
-    
+
     if (confirmDelete) {
       this.delete(student);
     }

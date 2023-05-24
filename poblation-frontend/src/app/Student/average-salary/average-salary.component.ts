@@ -5,11 +5,11 @@ import {Chart,registerables} from 'node_modules/chart.js';
 Chart.register(...registerables);
 
 @Component({
-  selector: 'app-average-rent',
-  templateUrl: './average-rent.component.html',
-  styleUrls: ['./average-rent.component.css']
+  selector: 'app-average-salary',
+  templateUrl: './average-salary.component.html',
+  styleUrls: ['./average-salary.component.css']
 })
-export class AverageRentComponent implements OnInit{
+export class AverageSalaryComponent implements OnInit{
 
   number:Number;
 
@@ -22,7 +22,7 @@ export class AverageRentComponent implements OnInit{
   }
 
   private obtainAvg() {
-    this.studentService.obtainAvg().subscribe(data => {
+    this.studentService.obtainAvgSalary().subscribe(data => {
       this.number = data;
     });
   }
@@ -37,21 +37,21 @@ export class AverageRentComponent implements OnInit{
 
     this.studentService.getStudentList().subscribe(students => {
       // Filtrar estudiantes que pagan renta
-      const payingRentStudents = students.filter(student => student.payRent);
-      const payingRentCount = payingRentStudents.length;
+      const canLiveStudents = students.filter(student => (student.spentRent+student.spentMarket+student.spentTransport) > 1160000);
+      const canLiveCount = canLiveStudents.length;
 
       // Filtrar estudiantes que no pagan renta
-      const notPayingRentStudents = students.filter(student => !student.payRent);
-      const notPayingRentCount = notPayingRentStudents.length;
+      const canNotLiveStudents = students.filter(student => !((student.spentRent+student.spentMarket+student.spentTransport) > 1160000));
+      const canNotLiveCount = canNotLiveStudents.length;
 
       const colors = this.generateRandomColors(students.length);
 
       new Chart("myChart", {
-        type: 'pie',
+        type: 'doughnut',
         data: {
-          labels: ['Sí pagan renta', 'No pagan renta'],
+          labels: ['Pueden vivir con 1 SMMLV', 'No pueden vivir con 1 SMMLV'],
           datasets: [{
-            data: [payingRentCount, notPayingRentCount],
+            data: [canLiveCount, canNotLiveCount],
             backgroundColor: colors,
             borderWidth: 1
           }]

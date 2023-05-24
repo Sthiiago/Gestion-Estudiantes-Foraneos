@@ -50,4 +50,8 @@ public class StudentController {
     public double getAverageSpent(){
         return studentService.getAverageSpent();
     }
+    @GetMapping("/students/average-salary")
+    public double getAvgMoreThanMinSalary(){
+        return studentService.getAvgMoreThanMinSalary();
+    }
 }
