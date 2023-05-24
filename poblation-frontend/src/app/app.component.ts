@@ -20,6 +20,11 @@ export class AppComponent {
   }
 
   filterStudentById(){
-    this.router.navigate(["filterStudent"])
+    this.router.navigate(["filterStudent"]);
   }
+
+  avgRent() {
+    this.router.navigate(["avgRent"]);
+  }
+
 }
