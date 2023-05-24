@@ -4,13 +4,15 @@ import { ListStudentsComponent } from './Student/list-students/list-students.com
 import { SaveStudentComponent } from './Student/save-student/save-student.component';
 import { UpdateStudentComponent } from './Student/update-student/update-student.component';
 import { GetStudentByIdComponent } from './Student/get-student-by-id/get-student-by-id.component';
+import {AverageRentComponent} from "./Student/average-rent/average-rent.component";
 
 const routes: Routes = [
   {path: 'students',component:ListStudentsComponent},
   {path: '',redirectTo:'students',pathMatch:'full'},
   {path: 'registerStudent',component:SaveStudentComponent},
   {path: 'updateStudent',component:UpdateStudentComponent},
-  {path: 'filterStudent', component:GetStudentByIdComponent}
+  {path: 'filterStudent', component:GetStudentByIdComponent},
+  {path: 'avgRent', component:AverageRentComponent}
 ];
 
 @NgModule({

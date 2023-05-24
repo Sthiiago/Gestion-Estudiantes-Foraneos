@@ -1,9 +1,7 @@
 package com.poblation.poblationbackend.controller;
 
 import com.poblation.poblationbackend.dto.StudentDTO;
-import com.poblation.poblationbackend.model.Student;
 import com.poblation.poblationbackend.service.StudentService;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

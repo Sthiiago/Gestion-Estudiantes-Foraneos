@@ -1,6 +1,7 @@
-.btn-custom{
-    background-color: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
-    font-weight: bold;
-    margin: 5px;
+.text-custom{
+  color: #000000;
+}
+
+.navbar-custom{
+  background: rgba(0, 0, 0, 0.03);
 }

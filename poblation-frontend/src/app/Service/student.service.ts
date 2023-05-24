@@ -34,5 +34,9 @@ export class StudentService {
     return this.httpClient.delete<Student>(this.baseURL+"/"+student.id);
   }
 
-  
+
+  obtainAvg() {
+    return this.httpClient.get<Number>(this.baseURL+"/average-pay-rent");
+  }
+
 }

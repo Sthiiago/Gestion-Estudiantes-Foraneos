@@ -9,6 +9,8 @@ import { SaveStudentComponent } from './Student/save-student/save-student.compon
 import { FormsModule } from '@angular/forms';
 import { UpdateStudentComponent } from './Student/update-student/update-student.component';
 import { GetStudentByIdComponent } from './Student/get-student-by-id/get-student-by-id.component';
+import { AverageRentComponent } from './Student/average-rent/average-rent.component';
+
 
 @NgModule({
   declarations: [
@@ -16,7 +18,8 @@ import { GetStudentByIdComponent } from './Student/get-student-by-id/get-student
     ListStudentsComponent,
     SaveStudentComponent,
     UpdateStudentComponent,
-    GetStudentByIdComponent
+    GetStudentByIdComponent,
+    AverageRentComponent
   ],
   imports: [
     BrowserModule,

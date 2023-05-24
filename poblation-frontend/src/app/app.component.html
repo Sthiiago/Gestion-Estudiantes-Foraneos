@@ -1,12 +1,31 @@
 <h1 class="text-center" style="margin-top: 20px;">{{title}}</h1>
-<div class="container text-center">
-    <button (click)="list()" class="btn btn-info btn-custom">Listar</button>
-    <button (click)="addStudent()" class="btn btn-info btn-custom">Añadir estudiante</button>
-    <button (click)="filterStudentById()" class="btn btn-info btn-custom">Buscar estudiante</button>
-    <button (click)="filterStudentById()" class="btn btn-info btn-custom">Promedio de<br>estudiantes foráneos que pagan arriendo</button>
-    <button (click)="filterStudentById()" class="btn btn-info btn-custom">Promedio de estudiantes<br>foráneos que pueden vivir con un salario mínimo</button>
-    <button (click)="filterStudentById()" class="btn btn-info btn-custom">Promedio de dinero<br>gastado mensualmente por estudiantes foráneos</button>
-</div>
+<nav class="navbar navbar-expand-lg navbar-custom">
+  <div class="container">
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <button (click)="list()" class="btn btn-link nav-link text-custom">Listar</button>
+        </li>
+        <li class="nav-item">
+          <button (click)="addStudent()" class="btn btn-link nav-link text-custom">Añadir estudiante</button>
+        </li>
+        <li class="nav-item">
+          <button (click)="filterStudentById()" class="btn btn-link nav-link text-custom">Buscar estudiante</button>
+        </li>
+        <li class="nav-item">
+          <button (click)="avgRent()" class="btn btn-link nav-link text-custom">Promedio de estudiantes foráneos que pagan arriendo</button>
+        </li>
+        <li class="nav-item">
+          <button (click)="avgRent()" class="btn btn-link nav-link text-custom">Promedio de estudiantes foráneos que pueden vivir con un salario mínimo</button>
+        </li>
+        <li class="nav-item">
+          <button (click)="filterStudentById()" class="btn btn-link nav-link text-custom">Promedio de dinero gastado mensualmente por estudiantes foráneos</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
 <div class="container">
-    <router-outlet></router-outlet>
+  <router-outlet></router-outlet>
 </div>
