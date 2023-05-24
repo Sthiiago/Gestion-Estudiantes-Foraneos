@@ -6,6 +6,7 @@ import { UpdateStudentComponent } from './Student/update-student/update-student.
 import { GetStudentByIdComponent } from './Student/get-student-by-id/get-student-by-id.component';
 import {AverageRentComponent} from "./Student/average-rent/average-rent.component";
 import {AverageSpentComponent} from "./Student/average-spent/average-spent.component";
+import {AverageSalaryComponent} from "./Student/average-salary/average-salary.component";
 
 const routes: Routes = [
   {path: 'students',component:ListStudentsComponent},
@@ -14,7 +15,8 @@ const routes: Routes = [
   {path: 'updateStudent',component:UpdateStudentComponent},
   {path: 'filterStudent', component:GetStudentByIdComponent},
   {path: 'avgRent', component:AverageRentComponent},
-  {path: 'avgSpent', component:AverageSpentComponent}
+  {path: 'avgSpent', component:AverageSpentComponent},
+  {path: 'avgSalary', component:AverageSalaryComponent}
 ];
 
 @NgModule({

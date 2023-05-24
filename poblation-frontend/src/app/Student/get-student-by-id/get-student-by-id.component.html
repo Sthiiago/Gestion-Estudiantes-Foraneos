@@ -9,9 +9,9 @@
                     <label>Ingrese el id del estudiante:</label>
                     <input type="text" class="form-control" [(ngModel)]="student.id" name="id" (input)="handleInputChange()">
                 </div>
-            
+
                 <button (click)="searchStudent()" class="btn btn-custom">Buscar</button>
-                
+
             </form>
         </div>
     </div>
@@ -23,17 +23,17 @@
                       <label>Id:</label>
                       <span> {{student.id}}</span>
                     </div>
-      
+
                   <div class="mb-2">
                     <label>Nombre:</label>
                     <span> {{student.name}}</span>
                   </div>
-            
+
                   <div class="mb-2">
                     <label>Apellido:</label>
                     <span> {{student.lastName}}</span>
                   </div>
-      
+
                   <div class="mb-2">
                       <label>Email:</label>
                       <span> {{student.email}}</span>
@@ -45,7 +45,7 @@
                 </div>
 
                 <div class="mb-2">
-                    <label>Gastos en renta:</label>
+                    <label>Gastos en vivienda:</label>
                     <span> {{student.spentRent | currency}}</span>
                 </div>
 
@@ -58,7 +58,7 @@
                     <label>¿Paga arriendo?:</label>
                     <span> {{student.payRent ? 'Sí' : 'No'}}</span>
                 </div>
-      
+
                 </div>
             </div>
     </div>

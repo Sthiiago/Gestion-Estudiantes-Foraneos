@@ -18,4 +18,6 @@ public interface StudentService {
 
     double getAveragePayRent();
     double getAverageSpent();
+
+    double getAvgMoreThanMinSalary();
 }
