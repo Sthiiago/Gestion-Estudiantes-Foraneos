@@ -46,4 +46,8 @@ public class StudentController {
     public double getAveragePayRent(){
         return studentService.getAveragePayRent();
     }
+    @GetMapping("/students/average-spent")
+    public double getAverageSpent(){
+        return studentService.getAverageSpent();
+    }
 }

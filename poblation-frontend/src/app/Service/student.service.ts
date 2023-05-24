@@ -39,4 +39,8 @@ export class StudentService {
     return this.httpClient.get<Number>(this.baseURL+"/average-pay-rent");
   }
 
+  obtainAvgSpent() {
+    return this.httpClient.get<Number>(this.baseURL+"/average-spent");
+  }
+
 }
